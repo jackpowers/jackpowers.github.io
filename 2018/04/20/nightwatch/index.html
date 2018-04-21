@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Getting Started with NightWatch.js! | AutomataHackers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Mountain-Project-NightWatch.jsNightwatch.js is a Node.js based testing solution for browser based apps and websites. It uses the W3C WebDriver API to perform commands and assertions on DOM elements.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Getting Started with NightWatch.js!">
+<meta property="og:url" content="https://automatahackers.com/2018/04/20/nightwatch/index.html">
+<meta property="og:site_name" content="AutomataHackers">
+<meta property="og:description" content="Mountain-Project-NightWatch.jsNightwatch.js is a Node.js based testing solution for browser based apps and websites. It uses the W3C WebDriver API to perform commands and assertions on DOM elements.">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://cloud.githubusercontent.com/assets/194400/16045809/099207e2-3242-11e6-99d4-99b227d7a38a.png">
+<meta property="og:image" content="https://automatahackers.com/2018/04/20/nightwatch.png">
+<meta property="og:image" content="https://imgs.xkcd.com/comics/wisdom_of_the_ancients.png">
+<meta property="og:updated_time" content="2018-04-21T16:17:06.813Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Getting Started with NightWatch.js!">
+<meta name="twitter:description" content="Mountain-Project-NightWatch.jsNightwatch.js is a Node.js based testing solution for browser based apps and websites. It uses the W3C WebDriver API to perform commands and assertions on DOM elements.">
+<meta name="twitter:image" content="https://cloud.githubusercontent.com/assets/194400/16045809/099207e2-3242-11e6-99d4-99b227d7a38a.png">
+  
+    <link rel="alternate" href="/atom.xml" title="AutomataHackers" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AutomataHackers</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">A QA Automation Blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <!-- <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav> !-->
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://automatahackers.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-nightwatch" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/20/nightwatch/" class="article-date">
+  <time datetime="2018-04-20T17:26:59.756Z" itemprop="datePublished">2018-04-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Getting Started with NightWatch.js!
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://cloud.githubusercontent.com/assets/194400/16045809/099207e2-3242-11e6-99d4-99b227d7a38a.png" alt=""></p>
+<h2 id="Mountain-Project-NightWatch-js"><a href="#Mountain-Project-NightWatch-js" class="headerlink" title="Mountain-Project-NightWatch.js"></a>Mountain-Project-NightWatch.js</h2><p>Nightwatch.js is a Node.js based testing solution for browser based apps and websites. It uses the W3C WebDriver API to perform commands and assertions on DOM elements.</p>
+<p>This NightWatch.js app tests the functionality of mountainproject.com. With an Amazon S3 account, you can store test data including screenshots on S3. The app can also be configured to use SauceLabs for testing on multiple browsers and simulated devices. I created this app with the help of this tutorial:</p>
+<p><a href="https://github.com/dwyl/learn-nightwatch" target="_blank" rel="noopener">https://github.com/dwyl/learn-nightwatch</a></p>
+<h3 id="Want-to-see-it"><a href="#Want-to-see-it" class="headerlink" title="Want to see it?"></a><em>Want to see it?</em></h3><p>Assuming that you have <a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a> and <a href="https://www.npmjs.com/" target="_blank" rel="noopener">npm</a> installed on your machine, you can…</p>
+<p><em><strong>Try it out</strong></em> on your local machine in 5 mins by following these <em><strong>steps</strong></em>:</p>
+<h3 id="1-Clone-or-download"><a href="#1-Clone-or-download" class="headerlink" title="1. Clone or download"></a>1. Clone or download</h3><p>Clone or download <a href="https://github.com/jackpowers/Mountain-Project-NightWatch.js" target="_blank" rel="noopener">this</a> repository.</p>
+<h3 id="2-Install"><a href="#2-Install" class="headerlink" title="2. Install"></a>2. Install</h3><p>Install the <em>required</em> dependencies<br>including Selenium Server and <code>chromedriver</code>:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<h3 id="3-Run"><a href="#3-Run" class="headerlink" title="3. Run"></a>3. Run</h3><p>Run the Nightwatch tests:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+<p><em><strong>You should see something like this in your Terminal window:</strong></em></p>
+<div align="center"><br><br><br><img src="../nightwatch.png" alt="Terminal Screenshot"><br><br><br></div>
+
+<p><em><strong>For troubleshooting and more information on building NightWatch.js apps try:</strong></em></p>
+<p><a href="https://github.com/dwyl/learn-nightwatch" target="_blank" rel="noopener">https://github.com/dwyl/learn-nightwatch</a></p>
+<p><em><strong>Or Google it:</strong></em></p>
+<div align="center"><br><br><img src="https://imgs.xkcd.com/comics/wisdom_of_the_ancients.png" alt=""><br><br></div>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://automatahackers.com/2018/04/20/nightwatch/" data-id="cjg9y70t10000dvcbgnewyru6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/19/welcome/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Welcome to AutomataHackers</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/04/20/nightwatch/">Getting Started with NightWatch.js!</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/19/welcome/">Welcome to AutomataHackers</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Jack Powers<br>
+      
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
