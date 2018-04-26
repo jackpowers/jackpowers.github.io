@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="AutomataHackers">
-<meta property="og:url" content="https://automatahackers.com/index.html">
+<meta property="og:url" content="http://automatahackers.com/index.html">
 <meta property="og:site_name" content="AutomataHackers">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
@@ -58,7 +58,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav> !-->
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://automatahackers.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://automatahackers.com"></form>
       </div>
     </div>
   </div>
@@ -102,7 +102,7 @@
 <p>We need two files in our folder: a config file and a spec file.</p>
 <p>The config file points us to our Selenium Server, test framework, and spec file.<br><code><br>    //conf.js<br>    exports.config = {<br>    framework: ‘jasmine’,<br>    seleniumAddress: ‘<a href="http://localhost:4444/wd/hub&#39;" target="_blank" rel="noopener">http://localhost:4444/wd/hub&#39;</a>,<br>    specs: [‘spec.js’]<br>  } </code> </p>
 <p>The spec file is where we set up the test we want to execute. <b>Be sure to modify the code below to contain your Remember the Milk user name and password.</b></p>
-<p><code><br>    //spec.js<br>    describe(‘Protractor Remember the Milk Demo’, function() {<br>    it(‘should do a log-in’, function() {<br>      //webpage that we navigate to<br>      browser.get(‘<a href="https://www.rememberthemilk.com&#39;)" target="_blank" rel="noopener">https://www.rememberthemilk.com&#39;)</a>;<br>      //Confirm the title<br>      console.log(browser.getTitle());<br>      expect(browser.getTitle()).toEqual(‘Remember The Milk: Online to-do list and task management’);<br>      //Log-in<br>      element(by.linkText(‘Log in’)).click();<br>      element(by.id(‘username’)).sendKeys(“yourUserName”);<br>      element(by.id(‘password’)).sendKeys(“yourPassword”);<br>      element(by.id(‘login-button’)).click();<br>      //Check for login to work<br>      browser.refresh();<br>      // <a href="https://github.com/angular/protractor/blob/master/docs/timeouts.md#waiting-for-angular-on-page-load" target="_blank" rel="noopener">https://github.com/angular/protractor/blob/master/docs/timeouts.md#waiting-for-angular-on-page-load</a><br>      browser.waitForAngularEnabled(false);<br>      expect(element(by.xpath(“/html[@class=’b-nk-ok’]/body[@class=’Pp Jj-Kj-Wp’]/div[@class=’b-Up’]/div[@class=’b-Up-Dn’]/div[@class=’b-Dn’]/div[@class=’b-Dn-G’]/div[@class=’b-Dn-G-ro’]/div[@class=’b-Up-Fj-Vp-ro’]/div[@class=’Fj-Vp’]/div[@id=’:p.p’]/div[@class=’Fj-Gj Fj-Gj-Q’][1]/div[@class=’Fj-Gj-Dn-ro’]/div[@class=’Fj-Gj-Dn’]/div[@id=’:1’]/a[@class=’Fj-an-yf’]/div[@class=’Fj-an-Oj’]”)).isPresent()).toBe(false);<br>    });<br>  });</code></p>
+<p><code><br>    //spec.js<br>    describe(‘Protractor Remember the Milk Demo’, function() {<br>    it(‘should do a log-in’, function() {<br>      //webpage that we navigate to<br>      browser.get(‘<a href="https://www.rememberthemilk.com&#39;)" target="_blank" rel="noopener">https://www.rememberthemilk.com&#39;)</a>;<br>      //Confirm the title<br>      console.log(browser.getTitle());<br>      expect(browser.getTitle()).toEqual(‘Remember The Milk: Online to-do list and task management’);<br>      //Log-in<br>      element(by.linkText(‘Log in’)).click();<br>      element(by.id(‘username’)).sendKeys(“yourUserName”);<br>      element(by.id(‘password’)).sendKeys(“yourPassword”);<br>      element(by.id(‘login-button’)).click();<br>      //Check for login to work<br>      browser.refresh();<br>      // <a href="https://github.com/angular/protractor/blob/master/docs/timeouts.md#waiting-for-angular-on-page-load" target="_blank" rel="noopener">https://github.com/angular/protractor/blob/master/docs/timeouts.md#waiting-for-angular-on-page-load</a><br>      browser.waitForAngularEnabled(false);<br>    });<br>  });</code></p>
 <h2 id="Run-it"><a href="#Run-it" class="headerlink" title="Run it!"></a>Run it!</h2><p>  Use this command in your terminal window:</p>
 <p>  <code>protractor conf.js</code></p>
 <p>  You should see a browser navigate to the Remember the Milk homepage and then log in.</p>
@@ -111,7 +111,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://automatahackers.com/2018/04/25/protractordemo/" data-id="cjgf85daj0002awcbsqtshssy" class="article-share-link">Share</a>
+      <a data-url="http://automatahackers.com/2018/04/25/protractordemo/" data-id="cjggq75vo0002lycbs5iiy3pe" class="article-share-link">Share</a>
       
       
     </footer>
@@ -300,7 +300,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://automatahackers.com/2018/04/22/logicgameplayer/" data-id="cjgf85dac0000awcbami4bhj6" class="article-share-link">Share</a>
+      <a data-url="http://automatahackers.com/2018/04/22/logicgameplayer/" data-id="cjggq75vr0003lycbpj1ndt3b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -354,7 +354,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://automatahackers.com/2018/04/20/nightwatch/" data-id="cjgf85dag0001awcbss8b8bxc" class="article-share-link">Share</a>
+      <a data-url="http://automatahackers.com/2018/04/20/nightwatch/" data-id="cjggq75vf0000lycb2d7jcs9u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -393,7 +393,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://automatahackers.com/2018/04/19/welcome/" data-id="cjgf85dan0003awcbnux9e2cd" class="article-share-link">Share</a>
+      <a data-url="http://automatahackers.com/2018/04/19/welcome/" data-id="cjggq75vl0001lycbpp1o0vzf" class="article-share-link">Share</a>
       
       
     </footer>
