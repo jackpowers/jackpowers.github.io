@@ -1,0 +1,10 @@
+{
+    
+  "name": "jackpowers.github.io",
+  "description": "automatahackers",
+  "author": "Jack :-)",
+  "version": "0.0.1",
+   "scripts": {
+   "test": "protractor conf.js"
+  }
+}
