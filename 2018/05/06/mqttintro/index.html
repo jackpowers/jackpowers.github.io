@@ -7,18 +7,18 @@
   
   <title>Getting Started with MQTT.js | AutomataHackers</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="An MQTT.js Demo App in ElectronMQTT.js is a client library for MQTT machine-to-machine protocol, for Node.js. This demo app uses Mosquitto MQTT Server/Broker to subscribe and publish to an MQTT topic">
+  <meta name="description" content="An MQTT.js Demo App in ElectronMQTT.js is a client library for MQTT machine-to-machine protocol for Node.js. This demo app uses Mosquitto MQTT Server/Broker to subscribe and publish to an MQTT topic">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Getting Started with MQTT.js">
 <meta property="og:url" content="http://automatahackers.com/2018/05/06/mqttintro/index.html">
 <meta property="og:site_name" content="AutomataHackers">
-<meta property="og:description" content="An MQTT.js Demo App in ElectronMQTT.js is a client library for MQTT machine-to-machine protocol, for Node.js. This demo app uses Mosquitto MQTT Server/Broker to subscribe and publish to an MQTT topic">
+<meta property="og:description" content="An MQTT.js Demo App in ElectronMQTT.js is a client library for MQTT machine-to-machine protocol for Node.js. This demo app uses Mosquitto MQTT Server/Broker to subscribe and publish to an MQTT topic">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://raw.githubusercontent.com/mqttjs/MQTT.js/137ee0e3940c1f01049a30248c70f24dc6e6f829/MQTT.js.png">
-<meta property="og:updated_time" content="2018-05-07T00:11:17.274Z">
+<meta property="og:updated_time" content="2018-05-10T13:57:10.425Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Getting Started with MQTT.js">
-<meta name="twitter:description" content="An MQTT.js Demo App in ElectronMQTT.js is a client library for MQTT machine-to-machine protocol, for Node.js. This demo app uses Mosquitto MQTT Server/Broker to subscribe and publish to an MQTT topic">
+<meta name="twitter:description" content="An MQTT.js Demo App in ElectronMQTT.js is a client library for MQTT machine-to-machine protocol for Node.js. This demo app uses Mosquitto MQTT Server/Broker to subscribe and publish to an MQTT topic">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/mqttjs/MQTT.js/137ee0e3940c1f01049a30248c70f24dc6e6f829/MQTT.js.png">
   
     <link rel="alternate" href="/atom.xml" title="AutomataHackers" type="application/atom+xml">
@@ -55,6 +55,8 @@
           <a class="main-nav-link" href="/">Home</a>
         
           <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/2018/04/19/welcome/">About</a>
         
       </nav>
       <!-- <nav id="sub-nav">
@@ -93,7 +95,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="https://raw.githubusercontent.com/mqttjs/MQTT.js/137ee0e3940c1f01049a30248c70f24dc6e6f829/MQTT.js.png" alt=""></p>
-<h2 id="An-MQTT-js-Demo-App-in-Electron"><a href="#An-MQTT-js-Demo-App-in-Electron" class="headerlink" title="An MQTT.js Demo App in Electron"></a>An MQTT.js Demo App in Electron</h2><p><a href="https://github.com/mqttjs/MQTT.js#client" target="_blank" rel="noopener">MQTT.js</a> is a client library for <a href="http://mqtt.org/" target="_blank" rel="noopener">MQTT</a> machine-to-machine protocol, for <a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a>.</p>
+<h2 id="An-MQTT-js-Demo-App-in-Electron"><a href="#An-MQTT-js-Demo-App-in-Electron" class="headerlink" title="An MQTT.js Demo App in Electron"></a>An MQTT.js Demo App in Electron</h2><p><a href="https://github.com/mqttjs/MQTT.js#client" target="_blank" rel="noopener">MQTT.js</a> is a client library for <a href="http://mqtt.org/" target="_blank" rel="noopener">MQTT</a> machine-to-machine protocol for <a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a>.</p>
 <p>This demo app uses <a href="http://test.mosquitto.org/" target="_blank" rel="noopener">Mosquitto</a> MQTT Server/Broker to subscribe and publish to an MQTT topic linked to this <a href="http://test.mosquitto.org/gauge/" target="_blank" rel="noopener">temperature guage</a>. Using the app, you can set a temperature for the guage via publishing to the MQTT topic. When you publish, you can see the guage move to the temperature you selected. The temperature that you selected will also appear in the topic’s messages displayed below the guage in a text box. Pressing the “Test” button will verify that the temperature you selected appears in the MQTT topic’s messages.</p>
 <h3 id="Want-to-see-it"><a href="#Want-to-see-it" class="headerlink" title="Want to see it?"></a><em>Want to see it?</em></h3><p>Assuming that you have <a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a> and <a href="https://www.npmjs.com/" target="_blank" rel="noopener">npm</a> installed on your machine, you can…</p>
 <p><em><strong>Try it out</strong></em> on your local machine in 5 mins by following these <em><strong>steps</strong></em>:</p>
@@ -101,7 +103,7 @@
 <h3 id="2-Install"><a href="#2-Install" class="headerlink" title="2. Install"></a>2. Install</h3><p>Install the <em>required</em> npm dependencies including <a href="https://github.com/mqttjs/MQTT.js#client" target="_blank" rel="noopener">MQTT.js</a> and <a href="https://www.npmjs.com/package/electron" target="_blank" rel="noopener">Electron</a>:</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
 <h3 id="3-Run"><a href="#3-Run" class="headerlink" title="3. Run"></a>3. Run</h3><p>Start it up:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure>
 <p><em><strong>You should see something like this:</strong></em></p>
 <div><br><iframe src="https://giphy.com/embed/cYR1xVsDg5uMpnKemG" width="480" height="300" frameborder="0" class="giphy-embed" allowfullscreen></iframe><p><a href="https://giphy.com/gifs/cYR1xVsDg5uMpnKemG" target="_blank" rel="noopener"></a></p><br></div>
 
@@ -109,7 +111,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://automatahackers.com/2018/05/06/mqttintro/" data-id="cjgvhmy3q0000bccbhfh21h6v" class="article-share-link">Share</a>
+      <a data-url="http://automatahackers.com/2018/05/06/mqttintro/" data-id="cjh0lmd570002jocbqjzuqspd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -117,6 +119,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2018/05/09/c-sharp-selenium/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Selenium Testing with C#
+        
+      </div>
+    </a>
   
   
     <a href="/2018/04/25/protractordemo/" id="article-nav-older" class="article-nav-link-wrap">
@@ -158,6 +169,10 @@
       <ul>
         
           <li>
+            <a href="/2018/05/09/c-sharp-selenium/">Selenium Testing with C#</a>
+          </li>
+        
+          <li>
             <a href="/2018/05/06/mqttintro/">Getting Started with MQTT.js</a>
           </li>
         
@@ -171,10 +186,6 @@
         
           <li>
             <a href="/2018/04/20/nightwatch/">Getting Started with NightWatch.js</a>
-          </li>
-        
-          <li>
-            <a href="/2018/04/19/welcome/">Welcome to AutomataHackers</a>
           </li>
         
       </ul>
@@ -200,6 +211,8 @@
     <a href="/" class="mobile-nav-link">Home</a>
   
     <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/2018/04/19/welcome/" class="mobile-nav-link">About</a>
   
 </nav>
     

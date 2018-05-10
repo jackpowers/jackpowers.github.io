@@ -50,6 +50,8 @@
         
           <a class="main-nav-link" href="/archives">Archives</a>
         
+          <a class="main-nav-link" href="/2018/04/19/welcome/">About</a>
+        
       </nav>
       <!-- <nav id="sub-nav">
         
@@ -65,6 +67,54 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-c-sharp-selenium" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/09/c-sharp-selenium/" class="article-date">
+  <time datetime="2018-05-09T22:01:54.484Z" itemprop="datePublished">2018-05-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/09/c-sharp-selenium/">Selenium Testing with C#</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://testing.todorvachev.com/wp-content/uploads/2016/02/9af616ceb1d0813bbf7dd52ec7507e8a-1.png" alt=""></p>
+<h2 id="A-Selenium-Demo-in-C"><a href="#A-Selenium-Demo-in-C" class="headerlink" title="A Selenium Demo in C"></a>A Selenium Demo in C</h2><p>Thus far, I’ve only dabbled a bit in C#. I built this <a href="https://github.com/jackpowers/Region-Finder-in-C-Sharp" target="_blank" rel="noopener">thing</a>, but that’s about it. A new job that I’m about to start is heavy on C#, so I thought I’d put together a short demo app that tests some links on a website. For this demo, we’ll make sure that some of the ancient links on the infamous super-classic vintage climbing website, <a href="http://www.supertopo.com/" target="_blank" rel="noopener">SuperTopo</a>, are working as they should.</p>
+<p>I built this app using <a href="https://www.visualstudio.com/vs/community/" target="_blank" rel="noopener">Visual Studio Community Edition</a>. Download it if you haven’t already.</p>
+<h2 id="Follow-the-steps-below-to-build-your-own-SuperTopo-Selenium-Demo-App-in-C"><a href="#Follow-the-steps-below-to-build-your-own-SuperTopo-Selenium-Demo-App-in-C" class="headerlink" title="Follow the steps below to build your own SuperTopo Selenium Demo App in C"></a>Follow the steps below to build your own SuperTopo Selenium Demo App in C</h2><h3 id="1-Create-a-new-MSTest-Solution"><a href="#1-Create-a-new-MSTest-Solution" class="headerlink" title="1. Create a new MSTest Solution"></a>1. Create a new MSTest Solution</h3><p>Open Visual Studio and select File -&gt; New Solution. In the pop-up window, select .Net Core -&gt; Tests -&gt; MSTest Project. Create a name for your project (I’m using SuperTopo1, so use this name if you want to copy and paste code.), and select a directory on your computer to store it.</p>
+<h3 id="2-Add-Packages"><a href="#2-Add-Packages" class="headerlink" title="2. Add Packages"></a>2. Add Packages</h3><p>Select Project -&gt; Add NuGet Packages. Type in “Selenium” in the search field. Check the checkboxes next to Selenium.Webdriver and Selenium.Support. Click the Add Packages button and then accept the licenses in the pop-up window.</p>
+<h3 id="3-Add-Code"><a href="#3-Add-Code" class="headerlink" title="3. Add Code"></a>3. Add Code</h3><p>Copy and paste the following code into your UnitTest1.cs file. Read through the comments as well.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">using Microsoft.VisualStudio.TestTools.UnitTesting;</span><br><span class="line">using OpenQA.Selenium.Firefox;</span><br><span class="line">using OpenQA.Selenium;</span><br><span class="line">using OpenQA.Selenium.Support.UI;</span><br><span class="line">using OpenQA.Selenium.Chrome;</span><br><span class="line"></span><br><span class="line">namespace SuperTopo</span><br><span class="line">&#123;</span><br><span class="line">    [TestClass]</span><br><span class="line">    public class SuperTopoSearchTest</span><br><span class="line">    &#123;</span><br><span class="line">        [TestMethod]</span><br><span class="line">        public void VerifyLinks()</span><br><span class="line">        &#123;</span><br><span class="line">            //Declare a new web driver</span><br><span class="line">            //Firefox is used here since it does not require an additional driver download</span><br><span class="line">            IWebDriver driver = new FirefoxDriver();</span><br><span class="line">            //Set up an implicit <span class="built_in">wait</span>. These take longer than explicit waits, but </span><br><span class="line">            //are more straightforward to code to demo</span><br><span class="line">            driver.Manage().Timeouts().ImplicitWait = System.TimeSpan.FromSeconds(5);</span><br><span class="line">            //send the driver to the SuperTopo url</span><br><span class="line">            driver.Navigate().GoToUrl(<span class="string">"http://www.supertopo.com/"</span>);</span><br><span class="line">            //Declare a web element on the forum link</span><br><span class="line">            IWebElement forum = driver.FindElement(By.LinkText(<span class="string">"Forum"</span>));</span><br><span class="line">            //Click the link</span><br><span class="line">            forum.Click();</span><br><span class="line">            //Get the current url following the click</span><br><span class="line">            string forumURL = driver.Url;</span><br><span class="line">            //Assert that the current url is equal to the expected</span><br><span class="line">            Assert.AreEqual(<span class="string">"http://www.supertopo.com/climbing/forum.php"</span>, forumURL);</span><br><span class="line">            //Navigate back to the SuperTopo homepage</span><br><span class="line">            driver.Navigate().Back();</span><br><span class="line"></span><br><span class="line">            //Declare a web element on the photos link</span><br><span class="line">            IWebElement photos = driver.FindElement(By.LinkText(<span class="string">"Photos"</span>));</span><br><span class="line">            //Click the link</span><br><span class="line">            photos.Click();</span><br><span class="line">            //Get the current url following the click</span><br><span class="line">            forumURL = driver.Url;</span><br><span class="line">            //Assert that the current url is equal to the expected</span><br><span class="line">            Assert.AreEqual(<span class="string">"http://www.supertopo.com/rock-climbing/photos.php"</span>, forumURL);</span><br><span class="line">            //Navigate back to the SuperTopo homepage</span><br><span class="line">            driver.Navigate().Back();</span><br><span class="line"></span><br><span class="line">            //Declare a web element on the free topos link</span><br><span class="line">            IWebElement topos = driver.FindElement(By.LinkText(<span class="string">"Free Topos"</span>));</span><br><span class="line">            //Click the link</span><br><span class="line">            topos.Click();</span><br><span class="line">            //Get the current url following the click</span><br><span class="line">            forumURL = driver.Url;</span><br><span class="line">            //Assert that the current url is equal to the expected</span><br><span class="line">            Assert.AreEqual(<span class="string">"http://www.supertopo.com/freetopos.html"</span>, forumURL);</span><br><span class="line">            //Navigate back to the SuperTopo homepage</span><br><span class="line">            driver.Navigate().Back();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            driver.Quit();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-Build-and-Run"><a href="#4-Build-and-Run" class="headerlink" title="4. Build and Run"></a>4. Build and Run</h3><p>Select Build -&gt; Build All and wait a few seconds for the Build to complete. Select Run -&gt; Run Unit Tests.</p>
+<p>Your app will launch a Firefox browser, navigate to SuperTopo, click on the links we specified, and verify the URLs.</p>
+<p><em><strong>You should see something like this:</strong></em></p>
+<div><br><iframe src="https://giphy.com/embed/2wgZJu6EKJZLbNlun6" width="480" height="300" frameborder="0" class="giphy-embed" allowfullscreen></iframe><p><a href="https://giphy.com/gifs/2wgZJu6EKJZLbNlun6" target="_blank" rel="noopener"></a></p><br></div>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://automatahackers.com/2018/05/09/c-sharp-selenium/" data-id="cjh0lmd4x0000jocb3otqhfz6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-mqttintro" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -89,7 +139,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="https://raw.githubusercontent.com/mqttjs/MQTT.js/137ee0e3940c1f01049a30248c70f24dc6e6f829/MQTT.js.png" alt=""></p>
-<h2 id="An-MQTT-js-Demo-App-in-Electron"><a href="#An-MQTT-js-Demo-App-in-Electron" class="headerlink" title="An MQTT.js Demo App in Electron"></a>An MQTT.js Demo App in Electron</h2><p><a href="https://github.com/mqttjs/MQTT.js#client" target="_blank" rel="noopener">MQTT.js</a> is a client library for <a href="http://mqtt.org/" target="_blank" rel="noopener">MQTT</a> machine-to-machine protocol, for <a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a>.</p>
+<h2 id="An-MQTT-js-Demo-App-in-Electron"><a href="#An-MQTT-js-Demo-App-in-Electron" class="headerlink" title="An MQTT.js Demo App in Electron"></a>An MQTT.js Demo App in Electron</h2><p><a href="https://github.com/mqttjs/MQTT.js#client" target="_blank" rel="noopener">MQTT.js</a> is a client library for <a href="http://mqtt.org/" target="_blank" rel="noopener">MQTT</a> machine-to-machine protocol for <a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a>.</p>
 <p>This demo app uses <a href="http://test.mosquitto.org/" target="_blank" rel="noopener">Mosquitto</a> MQTT Server/Broker to subscribe and publish to an MQTT topic linked to this <a href="http://test.mosquitto.org/gauge/" target="_blank" rel="noopener">temperature guage</a>. Using the app, you can set a temperature for the guage via publishing to the MQTT topic. When you publish, you can see the guage move to the temperature you selected. The temperature that you selected will also appear in the topic’s messages displayed below the guage in a text box. Pressing the “Test” button will verify that the temperature you selected appears in the MQTT topic’s messages.</p>
 <h3 id="Want-to-see-it"><a href="#Want-to-see-it" class="headerlink" title="Want to see it?"></a><em>Want to see it?</em></h3><p>Assuming that you have <a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a> and <a href="https://www.npmjs.com/" target="_blank" rel="noopener">npm</a> installed on your machine, you can…</p>
 <p><em><strong>Try it out</strong></em> on your local machine in 5 mins by following these <em><strong>steps</strong></em>:</p>
@@ -97,7 +147,7 @@
 <h3 id="2-Install"><a href="#2-Install" class="headerlink" title="2. Install"></a>2. Install</h3><p>Install the <em>required</em> npm dependencies including <a href="https://github.com/mqttjs/MQTT.js#client" target="_blank" rel="noopener">MQTT.js</a> and <a href="https://www.npmjs.com/package/electron" target="_blank" rel="noopener">Electron</a>:</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
 <h3 id="3-Run"><a href="#3-Run" class="headerlink" title="3. Run"></a>3. Run</h3><p>Start it up:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure>
 <p><em><strong>You should see something like this:</strong></em></p>
 <div><br><iframe src="https://giphy.com/embed/cYR1xVsDg5uMpnKemG" width="480" height="300" frameborder="0" class="giphy-embed" allowfullscreen></iframe><p><a href="https://giphy.com/gifs/cYR1xVsDg5uMpnKemG" target="_blank" rel="noopener"></a></p><br></div>
 
@@ -105,7 +155,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://automatahackers.com/2018/05/06/mqttintro/" data-id="cjgvhmy3q0000bccbhfh21h6v" class="article-share-link">Share</a>
+      <a data-url="http://automatahackers.com/2018/05/06/mqttintro/" data-id="cjh0lmd570002jocbqjzuqspd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -139,9 +189,9 @@
       
         <p><img src="data:image/png;base64,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" alt=""></p>
 <p>This post is a quick introduction to Protractor, a <a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a> QA automation tool for AngularJS. </p>
-<h2 id="First-things-first"><a href="#First-things-first" class="headerlink" title="First things first"></a>First things first</h2><p>For this demo, you should have <a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a> and <a href="https://www.npmjs.com/" target="_blank" rel="noopener">npm</a> installed on your machine. </p>
+<h2 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h2><p>For this demo, you should have <a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a> and <a href="https://www.npmjs.com/" target="_blank" rel="noopener">npm</a> installed on your machine. </p>
 <p>Protractor uses <a href="https://jasmine.github.io/" target="_blank" rel="noopener">Jasmine</a>. Read up on it.</p>
-<p>You alsoneed a Selenium Server. You will need to have the <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">Java Development Kit (JDK)</a> installed to run the standalone Selenium Server. Verify this by running <code> java -version </code> from the command line.</p>
+<p>You also need a Selenium Server. You will need to have the <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">Java Development Kit (JDK)</a> installed to run the standalone Selenium Server. Verify this by running <code> java -version </code> from the command line.</p>
 <p>You should also create a free account at <a href="http://rememberthemilk.com/" target="_blank" rel="noopener">Remember the Milk</a>.</p>
 <h2 id="Install-Protractor-Install-Helper-Files-and-Fire-Up-a-Server"><a href="#Install-Protractor-Install-Helper-Files-and-Fire-Up-a-Server" class="headerlink" title="Install Protractor, Install Helper Files, and Fire Up a Server"></a>Install Protractor, Install Helper Files, and Fire Up a Server</h2><p>Run the commands below in your terminal.</p>
 <p>Global install of Protractor:<br><code> npm install -g protractor </code></p>
@@ -160,7 +210,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://automatahackers.com/2018/04/25/protractordemo/" data-id="cjgvhmy410003bccbbo1ce0rw" class="article-share-link">Share</a>
+      <a data-url="http://automatahackers.com/2018/04/25/protractordemo/" data-id="cjh0lmd5g0005jocbowx3wwqq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -349,7 +399,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://automatahackers.com/2018/04/22/logicgameplayer/" data-id="cjgvhmy3v0001bccbhxnb2vkr" class="article-share-link">Share</a>
+      <a data-url="http://automatahackers.com/2018/04/22/logicgameplayer/" data-id="cjh0lmd540001jocby0owmjjp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -403,7 +453,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://automatahackers.com/2018/04/20/nightwatch/" data-id="cjgvhmy3x0002bccb6sfbxe5y" class="article-share-link">Share</a>
+      <a data-url="http://automatahackers.com/2018/04/20/nightwatch/" data-id="cjh0lmd5c0003jocbj128v6i3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -442,7 +492,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://automatahackers.com/2018/04/19/welcome/" data-id="cjgvhmy420004bccb8ozreyd0" class="article-share-link">Share</a>
+      <a data-url="http://automatahackers.com/2018/04/19/welcome/" data-id="cjh0lmd5e0004jocbdx3259z4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -483,6 +533,10 @@
       <ul>
         
           <li>
+            <a href="/2018/05/09/c-sharp-selenium/">Selenium Testing with C#</a>
+          </li>
+        
+          <li>
             <a href="/2018/05/06/mqttintro/">Getting Started with MQTT.js</a>
           </li>
         
@@ -496,10 +550,6 @@
         
           <li>
             <a href="/2018/04/20/nightwatch/">Getting Started with NightWatch.js</a>
-          </li>
-        
-          <li>
-            <a href="/2018/04/19/welcome/">Welcome to AutomataHackers</a>
           </li>
         
       </ul>
@@ -525,6 +575,8 @@
     <a href="/" class="mobile-nav-link">Home</a>
   
     <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/2018/04/19/welcome/" class="mobile-nav-link">About</a>
   
 </nav>
     
