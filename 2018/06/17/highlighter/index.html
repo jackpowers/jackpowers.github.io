@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>A Selenium Web Element Highlighter in C# | AutomataHackers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="A Selenium Highlighter C SharpBack in the day, Selenium had a feature that would allow for highlighting web elements. This feature was useful for debugging, and it also made for more interesting view">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A Selenium Web Element Highlighter in C#">
+<meta property="og:url" content="http://automatahackers.com/2018/06/17/highlighter/index.html">
+<meta property="og:site_name" content="AutomataHackers">
+<meta property="og:description" content="A Selenium Highlighter C SharpBack in the day, Selenium had a feature that would allow for highlighting web elements. This feature was useful for debugging, and it also made for more interesting view">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://testing.todorvachev.com/wp-content/uploads/2016/02/9af616ceb1d0813bbf7dd52ec7507e8a-1.png">
+<meta property="og:updated_time" content="2018-06-17T17:18:12.529Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="A Selenium Web Element Highlighter in C#">
+<meta name="twitter:description" content="A Selenium Highlighter C SharpBack in the day, Selenium had a feature that would allow for highlighting web elements. This feature was useful for debugging, and it also made for more interesting view">
+<meta name="twitter:image" content="http://testing.todorvachev.com/wp-content/uploads/2016/02/9af616ceb1d0813bbf7dd52ec7507e8a-1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="AutomataHackers" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">AutomataHackers</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">A QA Automation Blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/2018/04/19/welcome/">About</a>
+        
+      </nav>
+      <!-- <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav> !-->
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://automatahackers.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-highlighter" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/17/highlighter/" class="article-date">
+  <time datetime="2018-06-17T16:49:02.085Z" itemprop="datePublished">2018-06-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      A Selenium Web Element Highlighter in C#
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://testing.todorvachev.com/wp-content/uploads/2016/02/9af616ceb1d0813bbf7dd52ec7507e8a-1.png" alt=""></p>
+<h2 id="A-Selenium-Highlighter-C-Sharp"><a href="#A-Selenium-Highlighter-C-Sharp" class="headerlink" title="A Selenium Highlighter C Sharp"></a>A Selenium Highlighter C Sharp</h2><p><a href="https://www.seleniumhq.org/docs/01_introducing_selenium.jsp#selenium-history" target="_blank" rel="noopener">Back in the day</a>, Selenium had a feature that would allow for highlighting web elements. This feature was useful for debugging, and it also made for more interesting viewing of test runs in the browswer. Alas, no more. So in this post, I’m making a simple implementation of a Selenium highlighter.</p>
+<p>I built this app using <a href="https://www.visualstudio.com/vs/community/" target="_blank" rel="noopener">Visual Studio Community Edition</a>. Download it if you haven’t already.</p>
+<h2 id="Follow-the-steps-below-to-build-your-own-Selenium-Highlighter-in-C-Sharp"><a href="#Follow-the-steps-below-to-build-your-own-Selenium-Highlighter-in-C-Sharp" class="headerlink" title="Follow the steps below to build your own Selenium Highlighter in C Sharp"></a>Follow the steps below to build your own Selenium Highlighter in C Sharp</h2><h3 id="1-Create-a-new-MSTest-Solution"><a href="#1-Create-a-new-MSTest-Solution" class="headerlink" title="1. Create a new MSTest Solution"></a>1. Create a new MSTest Solution</h3><p>Open Visual Studio and select File -&gt; New Solution. In the pop-up window, select .Net Core -&gt; Tests -&gt; MSTest Project. Create a name for your project (I’m using TableTraverseHighlightCSharp, so use this name if you want to copy and paste code.), and select a directory on your computer to store it.</p>
+<h3 id="2-Add-Packages"><a href="#2-Add-Packages" class="headerlink" title="2. Add Packages"></a>2. Add Packages</h3><p>Select Project -&gt; Add NuGet Packages. Type in “Selenium” in the search field. Check the checkboxes next to Selenium.Webdriver and Selenium.Support. Click the Add Packages button and then accept the licenses in the pop-up window.</p>
+<h3 id="3-Add-Code"><a href="#3-Add-Code" class="headerlink" title="3. Add Code"></a>3. Add Code</h3><p>Copy and paste the following code into your UnitTest1.cs file. Read through the comments as well.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">using Microsoft.VisualStudio.TestTools.UnitTesting;</span><br><span class="line">using OpenQA.Selenium.Firefox;</span><br><span class="line">using OpenQA.Selenium;</span><br><span class="line">using OpenQA.Selenium.Support.UI;</span><br><span class="line">using OpenQA.Selenium.Chrome;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using System;</span><br><span class="line"></span><br><span class="line">namespace TableTraverseHighlightCSharp</span><br><span class="line">&#123;</span><br><span class="line">    [TestClass]</span><br><span class="line">    public class UnitTest1</span><br><span class="line">    &#123;</span><br><span class="line">        [TestMethod]</span><br><span class="line">        public void TestMethod1()</span><br><span class="line">		&#123;</span><br><span class="line">            //Declare a new web driver</span><br><span class="line">            //Firefox is used here since it does not require an additional driver download</span><br><span class="line">            IWebDriver driver = new FirefoxDriver();</span><br><span class="line">            //Set up an implicit <span class="built_in">wait</span>. These take longer than explicit waits, but </span><br><span class="line">            //are more straightforward to code to demo</span><br><span class="line">            driver.Manage().Timeouts().ImplicitWait = System.TimeSpan.FromSeconds(5);</span><br><span class="line">            //send the driver to the SuperTopo url</span><br><span class="line">			driver.Navigate().GoToUrl(<span class="string">"https://www.w3schools.com/html/html_tables.asp"</span>);</span><br><span class="line">            //Declare a var <span class="keyword">for</span> the customers table</span><br><span class="line">            var table = driver.FindElement(By.Id(<span class="string">"customers"</span>));</span><br><span class="line">			//Declare a var <span class="keyword">for</span> the rows <span class="keyword">in</span> the table</span><br><span class="line">			var tableData = table.FindElements(By.TagName(<span class="string">"td"</span>));</span><br><span class="line">            //highlighter</span><br><span class="line">			var jsDriver = (IJavaScriptExecutor)driver;</span><br><span class="line">            //Makes the border red and the background yellow. Adjust to taste. </span><br><span class="line">			string highlightJavascript = @<span class="string">"arguments[0].style.cssText = "</span><span class="string">"border-width: 2px; border-style: solid; border-color: red; background-color: yellow;"</span><span class="string">";"</span>;</span><br><span class="line">            //highlight some cells <span class="keyword">in</span> a table</span><br><span class="line">			<span class="keyword">for</span> (int i = 0; i &lt; tableData.Count; i++)</span><br><span class="line">			&#123;</span><br><span class="line"></span><br><span class="line">				jsDriver.ExecuteScript(highlightJavascript, new object[] &#123; tableData[i] &#125;);</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">            //peace out</span><br><span class="line">            driver.Quit();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-Build-and-Run"><a href="#4-Build-and-Run" class="headerlink" title="4. Build and Run"></a>4. Build and Run</h3><p>Select Build -&gt; Build All and wait a few seconds for the Build to complete. Select Run -&gt; Run Unit Tests.</p>
+<p>Your app will launch a Firefox browser, navigate to the W3 HTML page, and highlight some cells in the first table.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://automatahackers.com/2018/06/17/highlighter/" data-id="cjij3hdg80000gfcbjivxu8w3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/05/09/c-sharp-selenium/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Selenium Testing with C#</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/06/17/highlighter/">A Selenium Web Element Highlighter in C#</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/09/c-sharp-selenium/">Selenium Testing with C#</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/06/mqttintro/">Getting Started with MQTT.js</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/25/protractordemo/">Getting Started with Protractor</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/22/logicgameplayer/">A Selenium Game Player</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Jack Powers<br>
+      
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/2018/04/19/welcome/" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
